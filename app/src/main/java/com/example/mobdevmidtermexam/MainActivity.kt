@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.kotlinprac.screens.settings.SettingsScreen
+import com.example.mobdevmidtermexam.screens.settings.SettingsScreen
 import com.example.mobdevmidtermexam.screens.deliveries.DeliveriesScreen
 import com.example.mobdevmidtermexam.screens.login.LoginScreen
 import com.example.mobdevmidtermexam.ui.theme.MobdevMidtermExamTheme
