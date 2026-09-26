@@ -18,6 +18,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,6 +39,7 @@ private val SettingsBackground = Color.Black
 private val SettingsCard = Color(0xFF111111)
 private val SettingsMuted = Color(0xFF8D8D8D)
 private val DividerColor = Color(0xFF303030)
+private val SettingsBlue = Color(0xFF4C82D9)
 
 @Composable
 fun SettingsScreen() {
@@ -152,7 +154,13 @@ private fun SettingSwitchRow(
 
         Switch(
             checked = checked,
-            onCheckedChange = onCheckedChange
+            onCheckedChange = onCheckedChange,
+            colors = SwitchDefaults.colors(
+                checkedThumbColor = Color.White,
+                checkedTrackColor = SettingsBlue,
+                uncheckedThumbColor = Color.White,
+                uncheckedTrackColor = Color(0xFF4A4A4A)
+            )
         )
     }
 }
