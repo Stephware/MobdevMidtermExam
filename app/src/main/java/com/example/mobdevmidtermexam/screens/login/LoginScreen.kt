@@ -92,7 +92,6 @@ fun LoginScreen() {
             )
         }
 
-
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(
@@ -120,7 +119,7 @@ fun LoginScreen() {
                 Text(text = "Email")
             },
             placeholder = {
-                Text(text = "yourname@gmail.com")
+                Text(text = "name@company.com")
             },
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email
