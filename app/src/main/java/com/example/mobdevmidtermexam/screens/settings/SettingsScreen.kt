@@ -1,8 +1,7 @@
-package com.example.kotlinprac.screens.settings
+package com.example.mobdevmidtermexam.screens.settings
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -39,7 +38,6 @@ private val SettingsBackground = Color.Black
 private val SettingsCard = Color(0xFF111111)
 private val SettingsMuted = Color(0xFF8D8D8D)
 private val DividerColor = Color(0xFF303030)
-private val IconSlotBorder = Color(0xFF555555)
 
 @Composable
 fun SettingsScreen() {
@@ -80,7 +78,7 @@ fun SettingsScreen() {
             SettingSwitchRow(
                 label = "Delivery alerts",
                 checked = deliveryAlerts,
-                onCheckedChange = { deliveryAlerts = it },
+                onCheckedChange = { deliveryAlerts = it }
             )
             HorizontalDivider(color = DividerColor)
             SettingSwitchRow(
@@ -111,12 +109,19 @@ fun SettingsScreen() {
             shape = RoundedCornerShape(18.dp),
             colors = CardDefaults.cardColors(containerColor = SettingsCard)
         ) {
-            AccountRow(label = "Edit profile")
+            AccountRow(
+                label = "Edit profile",
+                iconRes = R.drawable.profile
+            )
             HorizontalDivider(color = DividerColor)
-            AccountRow(label = "Change password")
+            AccountRow(
+                label = "Change password",
+                iconRes = R.drawable.password
+            )
             HorizontalDivider(color = DividerColor)
             AccountRow(
                 label = "Log out",
+                iconRes = R.drawable.logout,
                 textColor = Color(0xFFE57373),
                 showArrow = false
             )
@@ -155,6 +160,7 @@ private fun SettingSwitchRow(
 @Composable
 private fun AccountRow(
     label: String,
+    @DrawableRes iconRes: Int,
     textColor: Color = Color.White,
     showArrow: Boolean = true
 ) {
@@ -165,23 +171,10 @@ private fun AccountRow(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.profile),
-            contentDescription = "Profile Icon",
-            tint = Color.White,
-            modifier = Modifier.size(30.dp)
-        )
-
-        Icon(
-            painter = painterResource(id = R.drawable.password),
-            contentDescription = "Password Icon",
-            tint = Color.White,
-            modifier = Modifier.size(30.dp)
-        )
-        Icon(
-            painter = painterResource(id = R.drawable.logout),
-            contentDescription = "Logout Icon",
-            tint = Color.White,
-            modifier = Modifier.size(30.dp)
+            painter = painterResource(id = iconRes),
+            contentDescription = label,
+            tint = textColor,
+            modifier = Modifier.size(24.dp)
         )
 
         Spacer(modifier = Modifier.width(14.dp))
